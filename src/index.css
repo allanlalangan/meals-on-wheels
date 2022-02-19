@@ -2,20 +2,20 @@
 
 html {
   --prim-color: hsl(349, 96%, 31%);
-  --sec-color: hsl(29, 96%, 56%);
+  --sec-color: hsl(49, 96%, 56%);
   --ter-color: hsl(323, 73%, 22%);
   --prim-acc: hsl(23, 84%, 48%);
-  --sec-acc: hsl(0, 0%, 100%);
+  --sec-acc: hsl(192, 80%, 21%);
+
+  --menu-color: hsl(24, 100%, 95%);
+
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html {
-  font-family: 'Noto Sans JP', sans-serif;
 }
 
 body {
