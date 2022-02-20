@@ -1,0 +1,7 @@
+.container {
+  background-color: var(--menu-color);
+  color: var(--sec-acc);
+  width: 75%;
+
+  /* border-radius: 0 1rem 0 0; */
+}

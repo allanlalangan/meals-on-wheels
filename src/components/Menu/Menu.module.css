@@ -1,0 +1,21 @@
+.container {
+  background-color: var(--menu-color);
+  color: var(--sec-acc);
+
+  height: 90vh;
+  width: 75%;
+
+  border-radius: 0 1rem 0 0;
+}
+
+.menuHeading {
+  padding-left: 1rem;
+}
+
+.mealsList {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}

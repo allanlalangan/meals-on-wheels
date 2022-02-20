@@ -1,0 +1,6 @@
+button {
+  background-color: var(--sec-color);
+  padding: 0.5rem 2rem;
+  border: 2px solid var(--prim-acc);
+  border-radius: 25px;
+}
