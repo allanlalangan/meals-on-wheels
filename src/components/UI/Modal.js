@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import styles from './Modal.module.css'
 
 const ModalBackdrop = props => {
-  return <div className={styles.backdrop}></div>
+  return <div className={styles.backdrop} onClick={props.onClick}></div>
 }
 
 const ModalWindow = props => {
@@ -15,7 +15,10 @@ const portalToElement = document.getElementById('modal-root')
 const Modal = props => {
   return (
     <>
-      {ReactDOM.createPortal(<ModalBackdrop />, portalToElement)}
+      {ReactDOM.createPortal(
+        <ModalBackdrop onClick={props.onBackdropClick} />,
+        portalToElement
+      )}
       {ReactDOM.createPortal(
         <ModalWindow>{props.children}</ModalWindow>,
         portalToElement

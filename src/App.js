@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <main>
-        {cartIsOpen && <Cart onCloseCart={handleCloseCart} />}
+        {cartIsOpen && <Cart onClose={handleCloseCart} />}
         <Header onOpenCart={handleOpenCart} />
         <Menu />
       </main>

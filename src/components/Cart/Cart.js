@@ -5,11 +5,11 @@ import styles from './Cart.module.css'
 
 const Cart = props => {
   return (
-    <Modal>
+    <Modal onBackdropClick={props.onClose}>
       <section className={styles.container}>
         <ul className={styles.cartItems}>{/* map cart items here */}</ul>
         <p>Total: $9.99</p>
-        <button onClick={props.onCloseCart}>Resume Order</button>
+        <button onClick={props.onClose}>Resume Order</button>
         <button>Order</button>
       </section>
     </Modal>
