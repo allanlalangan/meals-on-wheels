@@ -10,7 +10,7 @@ const ModalWindow = props => {
   return <aside className={styles.window}>{props.children}</aside>
 }
 
-const portalToElement = document.getElementById('modal')
+const portalToElement = document.getElementById('modal-root')
 
 const Modal = props => {
   return (
