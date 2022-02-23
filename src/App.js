@@ -4,7 +4,7 @@ import Header from './components/Layout/Header/Header'
 import Menu from './components/Menu/Menu'
 
 function App() {
-  const [cartIsOpen, setCartIsOpen] = useState(true)
+  const [cartIsOpen, setCartIsOpen] = useState(false)
 
   const handleCloseCart = () => {
     setCartIsOpen(false)
