@@ -11,7 +11,7 @@ const MealForm = props => {
     <div>
       <form onSubmit={handleAddMeal}>
         <label htmlFor={props.key}>QTY</label>
-        <input id={props.key} type='number' />
+        <input className={styles.input} id={props.key} type='number' />
         <Button type='button'>-</Button>
         <Button type='button'>+</Button>
         <Button type='submit'>Add</Button>
