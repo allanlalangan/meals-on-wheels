@@ -1,5 +1,4 @@
 import React from 'react'
-import MealForm from './MealForm'
 import styles from './Meal.module.css'
 
 const Meal = props => {
@@ -8,7 +7,6 @@ const Meal = props => {
       <p>{props.name}</p>
       <p>{props.info}</p>
       <p>{props.price}</p>
-      <MealForm {...props} />
     </li>
   )
 }
