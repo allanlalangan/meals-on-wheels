@@ -13,8 +13,16 @@ const MealForm = props => {
   return (
     <div>
       <form onSubmit={handleAddMeals}>
-        <label htmlFor={props.key}>QTY</label>
-        <input className={styles.input} id={props.key} type='number' />
+        <label htmlFor='quantity'>Qty</label>
+        <input
+          className={styles.input}
+          id='quantity'
+          type='number'
+          step='1'
+          min='1'
+          max='5'
+          defaultValue='1'
+        />
         <Button type='button'>-</Button>
         <Button type='button'>+</Button>
         <Button type='submit'>Add</Button>

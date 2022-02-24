@@ -1,0 +1,11 @@
+.cart-btn {
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-qty {
+  display: inline-block;
+  color: var(--prim-color);
+  font-weight: 700;
+}
