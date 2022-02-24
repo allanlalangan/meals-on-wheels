@@ -18,12 +18,7 @@ const Menu = () => {
                 info={meal.info}
                 price={meal.price}
               />
-              <MealForm
-                key={meal.id}
-                name={meal.name}
-                info={meal.info}
-                price={meal.price}
-              />
+              <MealForm name={meal.name} info={meal.info} price={meal.price} />
             </>
           )
         })}
