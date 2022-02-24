@@ -8,16 +8,27 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   switch (action.type) {
+    case 'ADD':
+      return
+    case 'REMOVE':
+      return
     default:
       throw new Error()
   }
 }
 
 const CartContextProvider = props => {
-  const [cartState, cartDispatch] = useReducer(cartReducer, defaultCartState)
+  const [cartState, dispatchCartAction] = useReducer(
+    cartReducer,
+    defaultCartState
+  )
 
-  const handleAddItem = item => {}
-  const handleRemoveItem = id => {}
+  const handleAddItem = item => {
+    dispatchCartAction({ type: 'ADD', payload: item })
+  }
+  const handleRemoveItem = id => {
+    dispatchCartAction({ type: 'REMOVE', payload: id })
+  }
 
   const cartContext = {
     items: cartState.items,
