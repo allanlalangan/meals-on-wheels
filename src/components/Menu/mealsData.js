@@ -19,7 +19,7 @@ const allMeals = [
   },
   {
     id: '04',
-    name: 'Peanut Butter Creampie',
+    name: 'Nut Butter Creampie',
     info: 'Fluffy cakes with a sweet filling',
     price: 6.99,
   },

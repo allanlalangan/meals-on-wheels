@@ -9,7 +9,30 @@ const defaultCartState = {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD':
-      return
+      const currentCart = state.items
+      const existingCartItemIndex = currentCart.findIndex(
+        item => item.name === action.item.name
+      )
+      const existingCartItem = currentCart[existingCartItemIndex]
+
+      let updatedItem
+      let updatedCart
+      let updatedQty
+
+      if (existingCartItem) {
+        updatedQty = existingCartItem.qty + action.item.qty
+        updatedItem = {
+          ...existingCartItem,
+          qty: updatedQty,
+        }
+        updatedCart = [...currentCart]
+        updatedCart[existingCartItemIndex] = updatedItem
+      } else {
+        updatedCart = currentCart.concat(action.item)
+      }
+      return {
+        items: updatedCart,
+      }
     case 'REMOVE':
       return
     default:
@@ -24,10 +47,11 @@ const CartContextProvider = props => {
   )
 
   const handleAddItem = item => {
-    dispatchCartAction({ type: 'ADD', payload: item })
+    dispatchCartAction({ type: 'ADD', item: item, id: item.id })
+    console.log(cartState.items)
   }
   const handleRemoveItem = id => {
-    dispatchCartAction({ type: 'REMOVE', payload: id })
+    dispatchCartAction({ type: 'REMOVE', id: id })
   }
 
   const cartContext = {
