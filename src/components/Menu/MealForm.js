@@ -1,13 +1,28 @@
-import React, { useState, useContext, useReducer, useRef } from 'react'
+import React, { useState, useContext, useRef } from 'react'
 import Button from '../UI/Button'
 import styles from './MealForm.module.css'
 import Input from '../UI/QtyInput'
 import CartContext from '../store/cartContext'
 
 const MealForm = props => {
-  const qtyInputRef = useRef()
+  const [qtyInputState, setQtyInputState] = useState(1)
   const cartContext = useContext(CartContext)
-  const cartItems = cartContext.items
+
+  const decrement = () => {
+    if (qtyInputState <= 1) {
+      return qtyInputState
+    }
+    setQtyInputState(prevState => (prevState -= 1))
+  }
+
+  const increment = () => {
+    if (qtyInputState >= 5) {
+      return qtyInputState
+    }
+    setQtyInputState(prevState => (prevState += 1))
+  }
+
+  const qtyInputRef = useRef()
 
   const handleAdd = e => {
     e.preventDefault()
@@ -18,13 +33,20 @@ const MealForm = props => {
       price: props.price,
       qty: enteredQty,
     }
-    props.onAddMeal(cartItem)
+    cartContext.addItem(cartItem)
+    setQtyInputState(1)
   }
 
   return (
     <div>
       <form className={styles['meal-form']} onSubmit={handleAdd}>
-        <Input ref={qtyInputRef} label='quantity' />
+        <Input
+          ref={qtyInputRef}
+          label='quantity'
+          value={qtyInputState}
+          onIncrement={increment}
+          onDecrement={decrement}
+        />
         <Button type='submit'>Add</Button>
       </form>
     </div>
