@@ -20,12 +20,14 @@ const CartItem = props => {
   return (
     <div>
       <p>{props.name}</p>
-      <p>{`Quantity: ${props.qty}`}</p>
+      {props.qty > 1 && <p>{`x${props.qty}`}</p>}
       <p>{`$${props.price}`}</p>
       <p>{`Subtotal: $${props.totalPrice}`}</p>
-      <Button onClick={handleQtySub} type='button'>
-        -
-      </Button>
+      {props.qty > 1 && (
+        <Button onClick={handleQtySub} type='button'>
+          -
+        </Button>
+      )}
       <Button onClick={handleQtyAdd} type='button'>
         +
       </Button>
