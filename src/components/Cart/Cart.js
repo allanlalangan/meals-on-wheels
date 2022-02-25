@@ -14,15 +14,20 @@ const Cart = props => {
         <ul className={styles.cartItems}>
           {cartItems.map(item => {
             return (
-              <li>
-                <CartItem name={item.name} price={item.price} qty={item.qty} />
+              <li key={Date.now()}>
+                <CartItem
+                  name={item.name}
+                  price={item.price}
+                  qty={item.qty}
+                  totalPrice={item.price * item.qty}
+                />
               </li>
             )
           })}
         </ul>
         <p>Total: $19.99</p>
-        <button onClick={props.onClose}>Resume Order</button>
-        <button>Order</button>
+        <Button onClick={props.onClose}>Resume Order</Button>
+        <Button>Order</Button>
       </section>
     </Modal>
   )

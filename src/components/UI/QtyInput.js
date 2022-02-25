@@ -22,7 +22,7 @@ const QtyInput = React.forwardRef((props, ref) => {
         name='quantity'
         type='number'
         value={props.value}
-        // onChange={}
+        onChange={() => console.log('qty-changed')}
         step='1'
         min='1'
         max='5'

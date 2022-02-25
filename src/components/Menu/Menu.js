@@ -11,14 +11,9 @@ const Menu = () => {
       <ul className={styles.mealsList}>
         {allMeals.map(meal => {
           return (
-            <li className={styles['order-meal-card']}>
-              <Meal
-                key={meal.id}
-                name={meal.name}
-                info={meal.info}
-                price={meal.price}
-              />
-              <MealForm name={meal.name} id={meal.id} price={meal.price} />
+            <li key={meal.id} className={styles['order-meal-card']}>
+              <Meal name={meal.name} info={meal.info} price={meal.price} />
+              <MealForm name={meal.name} price={meal.price} />
             </li>
           )
         })}
