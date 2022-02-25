@@ -8,6 +8,7 @@ import styles from './Cart.module.css'
 const Cart = props => {
   const cartContext = useContext(CartContext)
   const cartItems = cartContext.items
+
   return (
     <Modal onBackdropClick={props.onClose}>
       <section className={styles.container}>
@@ -16,6 +17,8 @@ const Cart = props => {
             return (
               <li key={item.id}>
                 <CartItem
+                  item={item}
+                  id={item.id}
                   name={item.name}
                   price={item.price}
                   qty={item.qty}
@@ -28,7 +31,7 @@ const Cart = props => {
         <p>
           {cartItems.length === 0
             ? 'Cart is empty'
-            : `Total: ${cartItems.reduce(
+            : `Total: $${cartItems.reduce(
                 (total, item) => total + item.price * item.qty,
                 0
               )}`}

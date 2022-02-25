@@ -8,16 +8,15 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD':
-      const currentCart = state.items
-      const existingCartItemIndex = currentCart.findIndex(
-        item => item.name === action.item.name
-      )
-      const existingCartItem = currentCart[existingCartItemIndex]
-
+    case 'ADD': //DISPATCH ACTION
+      let updatedQty
       let updatedItem
       let updatedCart
-      let updatedQty
+
+      const existingCartItemIndex = state.items.findIndex(
+        item => item.name === action.item.name
+      )
+      const existingCartItem = state.items[existingCartItemIndex]
 
       if (existingCartItem) {
         updatedQty = existingCartItem.qty + action.item.qty
@@ -25,18 +24,49 @@ const cartReducer = (state, action) => {
           ...existingCartItem,
           qty: updatedQty,
         }
-        updatedCart = [...currentCart]
+        updatedCart = [...state.items]
         updatedCart[existingCartItemIndex] = updatedItem
       } else {
-        updatedCart = currentCart.concat(action.item)
+        updatedCart = state.items.concat(action.item)
       }
       return {
         items: updatedCart,
       }
-    case 'REMOVE':
-      return
+
+    case 'REMOVE': //DISPATCH ACTION
+      console.log(action.id)
+      const updatedCartRemoveItem = state.items.filter(
+        item => item.id !== action.id
+      )
+      return {
+        items: updatedCartRemoveItem,
+      }
+
+    case 'CART_ITEM_QTY_ADD': //DISPATCH ACTION
+      const cartAddItemQtyIndex = state.items.findIndex(
+        item => item.name === action.item.name
+      )
+      const updatedCartAddItemQty = (action.item.qty += 1)
+      const updatedCartAddItem = { ...action.item, qty: updatedCartAddItemQty }
+      const updatedCartAddQty = [...state.items]
+      updatedCartAddQty[cartAddItemQtyIndex] = updatedCartAddItem
+      return {
+        items: updatedCartAddQty,
+      }
+
+    case 'CART_ITEM_QTY_SUB': //DISPATCH ACTION
+      const cartSubItemQtyIndex = state.items.findIndex(
+        item => item.name === action.item.name
+      )
+      const updatedCartSubItemQty = (action.item.qty -= 1)
+      const updatedCartSubItem = { ...action.item, qty: updatedCartSubItemQty }
+      const updatedCartSubQty = [...state.items]
+      updatedCartSubQty[cartSubItemQtyIndex] = updatedCartSubItem
+      return {
+        items: updatedCartSubQty,
+      }
     default:
-      throw new Error()
+      return state
   }
 }
 
@@ -53,11 +83,21 @@ const CartContextProvider = props => {
     dispatchCartAction({ type: 'REMOVE', id: id })
   }
 
+  const handleAddCartItemQty = item => {
+    dispatchCartAction({ type: 'CART_ITEM_QTY_ADD', item: item })
+  }
+
+  const handleSubCartItemQty = item => {
+    dispatchCartAction({ type: 'CART_ITEM_QTY_SUB', item: item })
+  }
+
   const cartContext = {
     items: cartState.items,
     totalPrice: cartState.totalPrice,
     addItem: handleAddItem,
     removeItem: handleRemoveItem,
+    addCartItemQty: handleAddCartItemQty,
+    subCartItemQty: handleSubCartItemQty,
   }
 
   return (
