@@ -47,8 +47,7 @@ const CartContextProvider = props => {
   )
 
   const handleAddItem = item => {
-    dispatchCartAction({ type: 'ADD', item: item, id: item.id })
-    console.log(cartState.items)
+    dispatchCartAction({ type: 'ADD', item: item })
   }
   const handleRemoveItem = id => {
     dispatchCartAction({ type: 'REMOVE', id: id })

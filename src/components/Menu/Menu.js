@@ -13,7 +13,7 @@ const Menu = () => {
           return (
             <li key={meal.id} className={styles['order-meal-card']}>
               <Meal name={meal.name} info={meal.info} price={meal.price} />
-              <MealForm name={meal.name} price={meal.price} />
+              <MealForm id={meal.id} name={meal.name} price={meal.price} />
             </li>
           )
         })}

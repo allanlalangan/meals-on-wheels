@@ -14,7 +14,7 @@ const Cart = props => {
         <ul className={styles.cartItems}>
           {cartItems.map(item => {
             return (
-              <li key={Date.now()}>
+              <li key={item.id}>
                 <CartItem
                   name={item.name}
                   price={item.price}
@@ -25,9 +25,16 @@ const Cart = props => {
             )
           })}
         </ul>
-        <p>Total: $19.99</p>
+        <p>
+          {cartItems.length === 0
+            ? 'Cart is empty'
+            : `Total: ${cartItems.reduce(
+                (total, item) => total + item.price * item.qty,
+                0
+              )}`}
+        </p>
         <Button onClick={props.onClose}>Resume Order</Button>
-        <Button>Order</Button>
+        {cartItems.length >= 1 && <Button>Order</Button>}
       </section>
     </Modal>
   )

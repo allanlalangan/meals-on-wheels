@@ -29,6 +29,7 @@ const MealForm = props => {
     const enteredQty = +qtyInputRef.current.value
 
     const cartItem = {
+      id: props.id,
       name: props.name,
       price: props.price,
       qty: enteredQty,
