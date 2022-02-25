@@ -9,14 +9,18 @@ const MealForm = props => {
 
   const qtyInputRef = useRef()
 
-  const decrement = () => {}
+  const decrement = () => {
+    console.log('decrement-btn')
+  }
 
-  const increment = () => {}
+  const increment = e => {
+    console.log('increment-btn')
+  }
+
   const handleAdd = e => {
     e.preventDefault()
     const enteredQty = qtyInputRef.current.value
     const enteredQtyNumber = +enteredQty
-    console.log(cartContext.items)
     console.log(enteredQtyNumber)
     console.log(props.name, props.price)
   }
@@ -24,7 +28,7 @@ const MealForm = props => {
   return (
     <div>
       <form onSubmit={handleAdd}>
-        <Input ref={qtyInputRef} label='quantity' defaultValue='1' />
+        <Input ref={qtyInputRef} label='quantity' />
         <Button onClick={decrement} type='button'>
           -
         </Button>
