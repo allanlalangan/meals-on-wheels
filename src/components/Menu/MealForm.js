@@ -2,20 +2,19 @@ import React, { useState, useContext, useReducer, useRef } from 'react'
 import Button from '../UI/Button'
 import styles from './MealForm.module.css'
 import CartContext from '../store/cartContext'
-import Input from '../UI/Input'
+import Input from '../UI/QtyInput'
 
 const MealForm = props => {
   const cartContext = useContext(CartContext)
-
   const qtyInputRef = useRef()
 
-  const decrement = () => {
-    console.log('decrement-btn')
-  }
+  // const decrement = e => {
+  //   console.log('decrement-btn')
+  // }
 
-  const increment = e => {
-    console.log('increment-btn')
-  }
+  // const increment = e => {
+  //   console.log('increment-btn')
+  // }
 
   const handleAdd = e => {
     e.preventDefault()
@@ -29,12 +28,6 @@ const MealForm = props => {
     <div>
       <form onSubmit={handleAdd}>
         <Input ref={qtyInputRef} label='quantity' />
-        <Button onClick={decrement} type='button'>
-          -
-        </Button>
-        <Button onClick={increment} type='button'>
-          +
-        </Button>
         <Button type='submit'>Add</Button>
       </form>
     </div>
