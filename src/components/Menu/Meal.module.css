@@ -1,9 +1,7 @@
-.mealItem {
+.mealCard {
   list-style: none;
-  height: 100%;
-  width: 75%;
-  border-top: 2px solid var(--ter-color);
-  padding-left: 1rem;
+  width: 100%;
+  /* border-top: 2px solid var(--ter-color); */
 
   display: flex;
   flex-direction: column;

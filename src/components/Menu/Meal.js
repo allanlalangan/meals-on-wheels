@@ -3,11 +3,11 @@ import styles from './Meal.module.css'
 
 const Meal = props => {
   return (
-    <li className={styles.mealItem}>
+    <div className={styles.mealCard}>
       <p>{props.name}</p>
       <p>{props.info}</p>
       <p>{props.price}</p>
-    </li>
+    </div>
   )
 }
 

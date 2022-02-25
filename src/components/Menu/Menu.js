@@ -7,11 +7,11 @@ import MealForm from './MealForm'
 const Menu = () => {
   return (
     <section className={styles.container}>
+      <h2 className={styles.menuHeading}>On today's menu</h2>
       <ul className={styles.mealsList}>
-        <h2 className={styles.menuHeading}>On today's menu</h2>
         {allMeals.map(meal => {
           return (
-            <>
+            <li className={styles['order-meal-card']}>
               <Meal
                 key={meal.id}
                 name={meal.name}
@@ -19,7 +19,7 @@ const Menu = () => {
                 price={meal.price}
               />
               <MealForm name={meal.name} info={meal.info} price={meal.price} />
-            </>
+            </li>
           )
         })}
       </ul>

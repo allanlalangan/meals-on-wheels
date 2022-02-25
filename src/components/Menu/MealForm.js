@@ -26,7 +26,7 @@ const MealForm = props => {
 
   return (
     <div>
-      <form onSubmit={handleAdd}>
+      <form className={styles['meal-form']} onSubmit={handleAdd}>
         <Input ref={qtyInputRef} label='quantity' />
         <Button type='submit'>Add</Button>
       </form>
