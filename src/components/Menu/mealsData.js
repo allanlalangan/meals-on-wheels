@@ -20,7 +20,7 @@ const allMeals = [
   {
     id: '04',
     name: 'Nana Creampie',
-    info: 'Fluffy cakes filled with sweet Banana cream',
+    info: 'Thicc cakes filled with sweet Banana cream',
     price: 6.99,
   },
 ]
