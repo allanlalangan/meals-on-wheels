@@ -12,10 +12,10 @@ const Cart = props => {
   return (
     <Modal onBackdropClick={props.onClose}>
       <section className={styles.container}>
-        <ul className={styles.cartItems}>
+        <ul className={styles['cart-items']}>
           {cartItems.map(item => {
             return (
-              <li key={item.id}>
+              <li className={styles['cart-item']} key={item.id}>
                 <CartItem
                   item={item}
                   id={item.id}

@@ -3,13 +3,22 @@
 
   background-color: var(--menu-color);
   color: var(--sec-acc);
-  width: 25vw;
+  width: 75vw;
   min-height: 45vh;
   max-height: 90vh;
 
   border-radius: 1rem;
 
   position: absolute;
-  right: -100vw;
+  left: calc(25vw / 2);
   top: 10vh;
+}
+
+.cart-items {
+  height: 100%;
+  width: 100%;
+}
+
+.cart-item {
+  width: 100%;
 }

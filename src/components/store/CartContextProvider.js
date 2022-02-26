@@ -18,8 +18,19 @@ const cartReducer = (state, action) => {
       )
       const existingCartItem = state.items[existingCartItemIndex]
 
-      if (existingCartItem) {
+      if (existingCartItem && existingCartItem.qty + action.item.qty < 5) {
         updatedQty = existingCartItem.qty + action.item.qty
+        updatedItem = {
+          ...existingCartItem,
+          qty: updatedQty,
+        }
+        updatedCart = [...state.items]
+        updatedCart[existingCartItemIndex] = updatedItem
+      } else if (
+        existingCartItem &&
+        existingCartItem.qty + action.item.qty >= 5
+      ) {
+        updatedQty = 5
         updatedItem = {
           ...existingCartItem,
           qty: updatedQty,
@@ -29,12 +40,13 @@ const cartReducer = (state, action) => {
       } else {
         updatedCart = state.items.concat(action.item)
       }
+
       return {
         items: updatedCart,
       }
 
     case 'REMOVE': //DISPATCH ACTION
-      console.log(action.id)
+      // console.log(action.id)
       const updatedCartRemoveItem = state.items.filter(
         item => item.id !== action.id
       )
@@ -46,12 +58,19 @@ const cartReducer = (state, action) => {
       const cartAddItemQtyIndex = state.items.findIndex(
         item => item.name === action.item.name
       )
-      const updatedCartAddItemQty = (action.item.qty += 1)
-      const updatedCartAddItem = { ...action.item, qty: updatedCartAddItemQty }
-      const updatedCartAddQty = [...state.items]
-      updatedCartAddQty[cartAddItemQtyIndex] = updatedCartAddItem
-      return {
-        items: updatedCartAddQty,
+      if (action.item.qty < 5) {
+        const updatedCartAddItemQty = (action.item.qty += 1)
+        const updatedCartAddItem = {
+          ...action.item,
+          qty: updatedCartAddItemQty,
+        }
+        const updatedCartAddQty = [...state.items]
+        updatedCartAddQty[cartAddItemQtyIndex] = updatedCartAddItem
+        return {
+          items: updatedCartAddQty,
+        }
+      } else {
+        return state
       }
 
     case 'CART_ITEM_QTY_SUB': //DISPATCH ACTION

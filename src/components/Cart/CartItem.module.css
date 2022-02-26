@@ -1,0 +1,4 @@
+.cart-item-controls {
+  display: flex;
+  justify-content: space-between;
+}
