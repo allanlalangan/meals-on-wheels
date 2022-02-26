@@ -1,16 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 html {
-  --prim-color: hsl(349, 96%, 31%);
-  --sec-color: hsl(49, 96%, 56%);
-  --ter-color: hsl(323, 73%, 22%);
-  --prim-acc: hsl(23, 84%, 48%);
-  --sec-acc: hsl(192, 80%, 21%);
+  --prim-color: hsl(350, 95%, 30%);
+  --sec-color: hsl(50, 95%, 55%);
+  --sec-color-acc: hsl(30, 80%, 70%);
+  --ter-color: hsl(325, 90%, 25%);
+  --prim-acc: hsl(25, 85%, 50%);
+  --sec-acc: hsl(200, 90%, 30%);
 
-  --menu-color: hsl(24, 100%, 95%);
+  --menu-color: hsl(25, 100%, 95%);
 
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 14px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+
+  --btn-border: 1px solid var(--prim-acc);
 }
 
 * {

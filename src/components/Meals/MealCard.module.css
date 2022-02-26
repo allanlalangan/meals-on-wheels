@@ -1,0 +1,11 @@
+.meal-card {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: 100%;
+  width: 100%;
+
+  border-top: 2px solid var(--ter-color);
+}

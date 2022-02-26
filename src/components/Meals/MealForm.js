@@ -1,21 +1,21 @@
 import React, { useState, useContext, useRef } from 'react'
 import Button from '../UI/Button'
 import styles from './MealForm.module.css'
-import Input from '../UI/QtyInput'
+import MealQtyInput from '../UI/MealQtyInput'
 import CartContext from '../store/cartContext'
 
 const MealForm = props => {
   const [qtyInputState, setQtyInputState] = useState(1)
   const cartContext = useContext(CartContext)
 
-  const decrement = () => {
+  const decrementQty = () => {
     if (qtyInputState <= 1) {
       return qtyInputState
     }
     setQtyInputState(prevState => (prevState -= 1))
   }
 
-  const increment = () => {
+  const incrementQty = () => {
     if (qtyInputState >= 5) {
       return qtyInputState
     }
@@ -39,18 +39,18 @@ const MealForm = props => {
   }
 
   return (
-    <div>
-      <form className={styles['meal-form']} onSubmit={handleAdd}>
-        <Input
-          ref={qtyInputRef}
-          label='quantity'
-          value={qtyInputState}
-          onIncrement={increment}
-          onDecrement={decrement}
-        />
-        <Button type='submit'>Add</Button>
-      </form>
-    </div>
+    <form className={styles['meal-form']} onSubmit={handleAdd}>
+      <MealQtyInput
+        ref={qtyInputRef}
+        label='quantity'
+        value={qtyInputState}
+        onIncrement={incrementQty}
+        onDecrement={decrementQty}
+      />
+      <Button type='submit' className={styles['submit-btn']}>
+        Add
+      </Button>
+    </form>
   )
 }
 

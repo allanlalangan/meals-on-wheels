@@ -1,10 +1,16 @@
-.mealCard {
-  list-style: none;
-  width: 100%;
-  /* border-top: 2px solid var(--ter-color); */
+.meal-item {
+  width: 40%;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+}
+
+.meal-name {
+}
+
+.meal-info {
+  font-size: 0.85rem;
 }

@@ -26,18 +26,30 @@ const CartItem = props => {
       <div className={styles['cart-item-controls']}>
         <div className={styles['cart-item-qty-control']}>
           {props.qty > 1 && (
-            <Button onClick={handleQtySub} type='button'>
+            <Button
+              onClick={handleQtySub}
+              type='button'
+              className={styles['inc-btn']}
+            >
               -
             </Button>
           )}
           {props.qty < 5 && (
-            <Button onClick={handleQtyAdd} type='button'>
+            <Button
+              onClick={handleQtyAdd}
+              type='button'
+              className={styles['dec-btn']}
+            >
               +
             </Button>
           )}
         </div>
         <div className={styles['cart-item-rmv-control']}>
-          <Button onClick={handleRemoveItem} type='button'>
+          <Button
+            onClick={handleRemoveItem}
+            type='button'
+            className={styles['rmv-btn']}
+          >
             Remove
           </Button>
         </div>

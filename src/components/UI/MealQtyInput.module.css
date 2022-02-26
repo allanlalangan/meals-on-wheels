@@ -1,0 +1,64 @@
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.label {
+  width: 3rem;
+  height: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.85rem;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.input {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: var(--sec-acc);
+  border: none;
+}
+
+.meal-qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meal-qty-btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.inc-btn,
+.dec-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-weight: 300;
+  font-size: inherit;
+}
+
+.inc-btn {
+  border-bottom: 0.5px;
+}
+.decc-btn {
+  border-top: 0.5px;
+}

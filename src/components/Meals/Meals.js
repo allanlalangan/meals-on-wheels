@@ -1,20 +1,21 @@
 import React from 'react'
-import styles from './Menu.module.css'
-import Meal from './Meal'
 import allMeals from './mealsData'
+import styles from './Meals.module.css'
+import MealCard from './MealCard'
+import MealItem from './MealItem'
 import MealForm from './MealForm'
 
 const Menu = () => {
   return (
     <section className={styles.container}>
-      <h2 className={styles.menuHeading}>On today's menu</h2>
-      <ul className={styles.mealsList}>
+      <h2 className={styles['meals-heading']}>On today's menu</h2>
+      <ul className={styles['meals-list']}>
         {allMeals.map(meal => {
           return (
-            <li key={meal.id} className={styles['order-meal-card']}>
-              <Meal name={meal.name} info={meal.info} price={meal.price} />
+            <MealCard key={meal.id}>
+              <MealItem name={meal.name} info={meal.info} price={meal.price} />
               <MealForm id={meal.id} name={meal.name} price={meal.price} />
-            </li>
+            </MealCard>
           )
         })}
       </ul>

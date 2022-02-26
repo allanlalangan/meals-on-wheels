@@ -14,7 +14,7 @@ const ShowCartButton = props => {
   }
   return (
     <button className={styles['cart-btn']} onClick={handleOpenCart}>
-      <span className={styles['btn-info']}>Your Cart</span>
+      <p className={styles['btn-text']}>Your Cart</p>
       <span className={styles['cart-qty']}>
         {cartItemTotal > 0 && cartItemTotal}
       </span>

@@ -1,11 +1,30 @@
 .cart-btn {
-  width: 25%;
+  height: 10vh;
+  width: 20vw;
+  margin-right: 2.5vw;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-evenly;
+
+  padding: 0.5rem 0;
+  border: 2px solid var(--prim-acc);
+  border-top: none;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.btn-text {
+  font-family: inherit;
+  font-weight: 600;
 }
 
 .cart-qty {
-  display: inline-block;
-  color: var(--prim-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--sec-color);
   font-weight: 700;
+  border-radius: 50%;
+  background-color: var(--prim-color);
 }
