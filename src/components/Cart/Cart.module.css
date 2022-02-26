@@ -3,9 +3,9 @@
   background-color: var(--menu-color);
   color: var(--sec-acc);
   width: 75vw;
-  height: 70vh;
-  padding: 1rem;
-  top: 15vh;
+  height: 85vh;
+  padding: 1.5rem;
+  top: 8vh;
   left: 12.5vw;
   border-radius: 1rem;
 
@@ -27,12 +27,12 @@
 }
 
 .cart-actions {
+  width: 30%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
-  width: 30%;
 }
 
 .order-btn,
