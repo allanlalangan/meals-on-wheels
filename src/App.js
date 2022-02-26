@@ -20,9 +20,9 @@ function App() {
 
   return (
     <CartContextProvider>
+      {cartIsOpen && <Cart onClose={handleCloseCart} />}
+      <Header onOpenCart={handleOpenCart} />
       <main>
-        {cartIsOpen && <Cart onClose={handleCloseCart} />}
-        <Header onOpenCart={handleOpenCart} />
         <Meals />
       </main>
     </CartContextProvider>

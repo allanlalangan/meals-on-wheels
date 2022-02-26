@@ -18,31 +18,33 @@ const CartItem = props => {
   }
 
   return (
-    <>
-      <p>{props.name}</p>
-      {props.qty > 1 && <p>{`x${props.qty}`}</p>}
-      <p>{`$${props.price}`}</p>
-      <p>{`Subtotal: $${props.totalPrice}`}</p>
+    <li className={styles['cart-item']}>
+      <article className={styles['meal-info']}>
+        <h1 className={styles['meal-name']}>{props.name}</h1>
+        <p
+          className={props.qty === 1 ? `${styles.hidden}` : ''}
+        >{`x${props.qty}`}</p>
+      </article>
+      <article className={styles['cart-item-subtotal']}>
+        <p>{`$${props.price}`}</p>
+        <p>{`Subtotal: $${props.totalPrice.toFixed(2)}`}</p>
+      </article>
       <div className={styles['cart-item-controls']}>
-        <div className={styles['cart-item-qty-control']}>
-          {props.qty > 1 && (
-            <Button
-              onClick={handleQtySub}
-              type='button'
-              className={styles['inc-btn']}
-            >
-              -
-            </Button>
-          )}
-          {props.qty < 5 && (
-            <Button
-              onClick={handleQtyAdd}
-              type='button'
-              className={styles['dec-btn']}
-            >
-              +
-            </Button>
-          )}
+        <div className={styles['cart-item-qty-controls']}>
+          <Button
+            onClick={handleQtySub}
+            type='button'
+            className={`${styles['qty-btn']} ${styles['dec-btn']}`}
+          >
+            -
+          </Button>
+          <Button
+            onClick={handleQtyAdd}
+            type='button'
+            className={`${styles['qty-btn']} ${styles['inc-btn']}`}
+          >
+            +
+          </Button>
         </div>
         <div className={styles['cart-item-rmv-control']}>
           <Button
@@ -54,7 +56,7 @@ const CartItem = props => {
           </Button>
         </div>
       </div>
-    </>
+    </li>
   )
 }
 

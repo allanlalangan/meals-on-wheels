@@ -14,7 +14,7 @@ const portalToElement = document.getElementById('modal-root')
 
 const Modal = props => {
   return (
-    <>
+    <section>
       {ReactDOM.createPortal(
         <ModalBackdrop onClick={props.onBackdropClick} />,
         portalToElement
@@ -23,7 +23,7 @@ const Modal = props => {
         <ModalWindow>{props.children}</ModalWindow>,
         portalToElement
       )}
-    </>
+    </section>
   )
 }
 

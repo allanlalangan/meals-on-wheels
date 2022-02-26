@@ -5,7 +5,7 @@ import styles from './Header.module.css'
 const Header = props => {
   return (
     <header className={styles.header}>
-      <h1>Meals on Wheels</h1>
+      <h1>Meals On Wheels</h1>
       <ShowCartButton onClick={props.onOpenCart} />
     </header>
   )

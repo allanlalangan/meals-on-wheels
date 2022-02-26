@@ -9,8 +9,15 @@
 }
 
 .meal-name {
+  color: var(--prim-acc);
+  /* font-weight: 700; */
 }
 
 .meal-info {
   font-size: 0.85rem;
+  font-weight: 300;
+}
+
+.meal-price {
+  font-weight: 600;
 }

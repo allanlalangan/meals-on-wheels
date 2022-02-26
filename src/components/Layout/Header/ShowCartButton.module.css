@@ -10,11 +10,14 @@
   border: 2px solid var(--prim-acc);
   border-top: none;
   border-radius: 0 0 1rem 1rem;
+
+  background-color: var(--sec-color);
 }
 
 .btn-text {
   font-family: inherit;
   font-weight: 600;
+  letter-spacing: inherit;
 }
 
 .cart-qty {
@@ -27,4 +30,8 @@
   font-weight: 700;
   border-radius: 50%;
   background-color: var(--prim-color);
+}
+
+.hidden {
+  display: none;
 }

@@ -15,29 +15,36 @@ const Cart = props => {
         <ul className={styles['cart-items']}>
           {cartItems.map(item => {
             return (
-              <li className={styles['cart-item']} key={item.id}>
-                <CartItem
-                  item={item}
-                  id={item.id}
-                  name={item.name}
-                  price={item.price}
-                  qty={item.qty}
-                  totalPrice={item.price * item.qty}
-                />
-              </li>
+              <CartItem
+                item={item}
+                id={item.id}
+                name={item.name}
+                price={item.price}
+                qty={item.qty}
+                totalPrice={item.price * item.qty}
+              />
             )
           })}
         </ul>
-        <p>
-          {cartItems.length === 0
-            ? 'Cart is empty'
-            : `Total: $${cartItems.reduce(
-                (total, item) => total + item.price * item.qty,
-                0
-              )}`}
-        </p>
-        <Button onClick={props.onClose}>Resume Order</Button>
-        {cartItems.length >= 1 && <Button>Order</Button>}
+        <section className={styles['cart-actions']}>
+          <Button className={styles['resume-btn']} onClick={props.onClose}>
+            Resume Order
+          </Button>
+          <div className={styles['order-summary']}>
+            <h1 className={styles['cart-total-price']}>
+              {cartItems.length === 0
+                ? 'Cart is empty'
+                : `Total: $${cartItems
+                    .reduce((total, item) => total + item.price * item.qty, 0)
+                    .toFixed(2)}`}
+            </h1>
+            {cartItems.length >= 1 && (
+              <Button className={styles['order-btn']} type='button'>
+                Place Order
+              </Button>
+            )}
+          </div>
+        </section>
       </section>
     </Modal>
   )
