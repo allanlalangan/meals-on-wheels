@@ -14,7 +14,7 @@ const cartReducer = (state, action) => {
       let updatedCart
 
       const existingCartItemIndex = state.items.findIndex(
-        item => item.name === action.item.name
+        (item) => item.name === action.item.name
       )
       const existingCartItem = state.items[existingCartItemIndex]
 
@@ -48,7 +48,7 @@ const cartReducer = (state, action) => {
     case 'REMOVE': //DISPATCH ACTION
       // console.log(action.id)
       const updatedCartRemoveItem = state.items.filter(
-        item => item.id !== action.id
+        (item) => item.id !== action.id
       )
       return {
         items: updatedCartRemoveItem,
@@ -56,7 +56,7 @@ const cartReducer = (state, action) => {
 
     case 'CART_ITEM_QTY_ADD': //DISPATCH ACTION
       const cartAddItemQtyIndex = state.items.findIndex(
-        item => item.name === action.item.name
+        (item) => item.name === action.item.name
       )
       if (action.item.qty < 5) {
         const updatedCartAddItemQty = (action.item.qty += 1)
@@ -75,38 +75,46 @@ const cartReducer = (state, action) => {
 
     case 'CART_ITEM_QTY_SUB': //DISPATCH ACTION
       const cartSubItemQtyIndex = state.items.findIndex(
-        item => item.name === action.item.name
+        (item) => item.name === action.item.name
       )
-      const updatedCartSubItemQty = (action.item.qty -= 1)
-      const updatedCartSubItem = { ...action.item, qty: updatedCartSubItemQty }
-      const updatedCartSubQty = [...state.items]
-      updatedCartSubQty[cartSubItemQtyIndex] = updatedCartSubItem
-      return {
-        items: updatedCartSubQty,
+      if (action.item.qty > 1) {
+        const updatedCartSubItemQty = (action.item.qty -= 1)
+        const updatedCartSubItem = {
+          ...action.item,
+          qty: updatedCartSubItemQty,
+        }
+        const updatedCartSubQty = [...state.items]
+        updatedCartSubQty[cartSubItemQtyIndex] = updatedCartSubItem
+        return {
+          items: updatedCartSubQty,
+        }
+      } else {
+        return state
       }
+
     default:
       return state
   }
 }
 
-const CartContextProvider = props => {
+const CartContextProvider = (props) => {
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
     defaultCartState
   )
 
-  const handleAddItem = item => {
+  const handleAddItem = (item) => {
     dispatchCartAction({ type: 'ADD', item: item })
   }
-  const handleRemoveItem = id => {
+  const handleRemoveItem = (id) => {
     dispatchCartAction({ type: 'REMOVE', id: id })
   }
 
-  const handleAddCartItemQty = item => {
+  const handleAddCartItemQty = (item) => {
     dispatchCartAction({ type: 'CART_ITEM_QTY_ADD', item: item })
   }
 
-  const handleSubCartItemQty = item => {
+  const handleSubCartItemQty = (item) => {
     dispatchCartAction({ type: 'CART_ITEM_QTY_SUB', item: item })
   }
 

@@ -8,6 +8,8 @@ const MealForm = props => {
   const [qtyInputState, setQtyInputState] = useState(1)
   const cartContext = useContext(CartContext)
 
+  const qtyInputRef = useRef()
+
   const decrementQty = () => {
     if (qtyInputState <= 1) {
       return qtyInputState
@@ -21,8 +23,6 @@ const MealForm = props => {
     }
     setQtyInputState(prevState => (prevState += 1))
   }
-
-  const qtyInputRef = useRef()
 
   const handleAdd = e => {
     e.preventDefault()

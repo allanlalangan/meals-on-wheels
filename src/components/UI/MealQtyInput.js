@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Button from './Button'
 import styles from './MealQtyInput.module.css'
 
 const MealQtyInput = React.forwardRef((props, ref) => {
+  const focusInputRef = useRef()
   const handleKeyPress = e => {
     if (e.keyCode === 37 || e.keyCode === 40) {
       props.onDecrement()
