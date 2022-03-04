@@ -4,14 +4,14 @@ import styles from './MealQtyInput.module.css'
 
 const MealQtyInput = React.forwardRef((props, ref) => {
   const focusInputRef = useRef()
-  const handleKeyPress = e => {
-    if (e.keyCode === 37 || e.keyCode === 40) {
-      props.onDecrement()
-    }
-    if (e.keyCode === 38 || e.keyCode === 39) {
-      props.onIncrement()
-    }
-  }
+  // const handleKeyPress = (e) => {
+  //   if (e.keyCode === 37 || e.keyCode === 40) {
+  //     props.onDecrement()
+  //   }
+  //   if (e.keyCode === 38 || e.keyCode === 39) {
+  //     props.onIncrement()
+  //   }
+  // }
 
   return (
     <div className={styles['meal-qty']}>
@@ -25,15 +25,13 @@ const MealQtyInput = React.forwardRef((props, ref) => {
           id='quantity'
           name='quantity'
           type='number'
-          value={props.value}
-          onChange={() => console.log('qty-changed')}
           step='1'
           min='1'
           max='5'
-          onKeyDown={handleKeyPress}
+          // onKeyDown={handleKeyPress}
         />
       </div>
-      <div className={styles['meal-qty-btns']}>
+      {/* <div className={styles['meal-qty-btns']}>
         <Button
           onClick={props.onIncrement}
           type='button'
@@ -48,7 +46,7 @@ const MealQtyInput = React.forwardRef((props, ref) => {
         >
           -
         </Button>
-      </div>
+      </div> */}
     </div>
   )
 })

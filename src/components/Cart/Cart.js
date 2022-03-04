@@ -5,7 +5,7 @@ import CartItem from './CartItem'
 import Button from '../UI/Button'
 import styles from './Cart.module.css'
 
-const Cart = props => {
+const Cart = (props) => {
   const cartContext = useContext(CartContext)
   const cartItems = cartContext.items
 
@@ -13,7 +13,7 @@ const Cart = props => {
     <Modal onBackdropClick={props.onClose}>
       <section className={styles.container}>
         <ul className={styles['cart-items']}>
-          {cartItems.map(item => {
+          {cartItems.map((item) => {
             return (
               <CartItem
                 item={item}

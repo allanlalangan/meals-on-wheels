@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import CartContext from '../store/cartContext'
 import styles from './CartItem.module.css'
 
+import MealQtyInput from '../UI/MealQtyInput'
 import Button from '../UI/Button'
 
-const CartItem = props => {
+const CartItem = (props) => {
   const cartContext = useContext(CartContext)
 
   const handleQtyAdd = () => {
@@ -21,9 +22,10 @@ const CartItem = props => {
     <li className={styles['cart-item']}>
       <article className={styles['meal-info']}>
         <h1 className={styles['meal-name']}>{props.name}</h1>
-        <p
+        <input type='number' value={props.qty} />
+        {/* <p
           className={props.qty === 1 ? `${styles.hidden}` : ''}
-        >{`x${props.qty}`}</p>
+        >{`x${props.qty}`}</p> */}
       </article>
       <article className={styles['cart-item-subtotal']}>
         <p>{`$${props.price}`}</p>
