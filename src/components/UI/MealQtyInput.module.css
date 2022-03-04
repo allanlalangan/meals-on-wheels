@@ -1,18 +1,18 @@
-/* .input::-webkit-outer-spin-button,
+.input::-webkit-outer-spin-button,
 .input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-} */
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+}
 
 .input-control {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* .input[type='number'] {
-  -moz-appearance: textfield;
-} */
 
 .label {
   width: 2rem;
@@ -35,31 +35,4 @@
   font-family: inherit;
   color: var(--sec-acc);
   border: none;
-}
-
-.meal-qty {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.meal-qty-btns {
-  width: 4rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.inc-btn,
-.dec-btn {
-  width: 1.5rem;
-  height: 1.5rem;
-  font-weight: 300;
-  font-size: inherit;
-}
-
-.inc-btn {
-  border-bottom: 0.5px;
-}
-.decc-btn {
-  border-top: 0.5px;
 }

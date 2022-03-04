@@ -2,14 +2,13 @@ import React, { useContext } from 'react'
 import CartContext from '../../store/cartContext'
 import styles from './ShowCartButton.module.css'
 
-const ShowCartButton = props => {
+const ShowCartButton = (props) => {
   const cartContext = useContext(CartContext)
   const cartItemTotal = cartContext.items.reduce(
     (total, item) => total + item.qty,
     0
   )
   const handleOpenCart = () => {
-    console.log(cartContext.items)
     props.onClick()
   }
   return (

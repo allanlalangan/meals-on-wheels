@@ -1,34 +1,25 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Button from './Button'
 import styles from './MealQtyInput.module.css'
 
 const MealQtyInput = React.forwardRef((props, ref) => {
-  const focusInputRef = useRef()
-  // const handleKeyPress = (e) => {
-  //   if (e.keyCode === 37 || e.keyCode === 40) {
-  //     props.onDecrement()
-  //   }
-  //   if (e.keyCode === 38 || e.keyCode === 39) {
-  //     props.onIncrement()
-  //   }
-  // }
-
   return (
     <div className={styles['meal-qty']}>
       <div className={styles['input-control']}>
-        <label htmlFor='quantity' className={styles.label}>
+        <label htmlFor='qty' className={styles.label}>
           Qty
         </label>
         <input
           ref={ref}
           className={styles.input}
-          id='quantity'
+          id='qty'
           name='quantity'
           type='number'
           step='1'
           min='1'
           max='5'
-          // onKeyDown={handleKeyPress}
+          value={props.value}
+          onChange={props.onChange}
         />
       </div>
       {/* <div className={styles['meal-qty-btns']}>

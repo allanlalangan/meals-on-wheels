@@ -10,12 +10,10 @@ function App() {
 
   const handleCloseCart = () => {
     setCartIsOpen(false)
-    console.log('modal closed')
   }
 
   const handleOpenCart = () => {
     setCartIsOpen(true)
-    console.log('modal opened')
   }
 
   return (

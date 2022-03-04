@@ -8,16 +8,21 @@ import styles from './Cart.module.css'
 const Cart = (props) => {
   const cartContext = useContext(CartContext)
   const cartItems = cartContext.items
+  const handleSubmitOrder = (e) => {
+    e.preventDefault()
+    console.log(cartItems)
+  }
 
   return (
     <Modal onBackdropClick={props.onClose}>
-      <section className={styles.container}>
+      <form onSubmit={handleSubmitOrder} className={styles.container}>
         <ul className={styles['cart-items']}>
           {cartItems.map((item) => {
             return (
               <CartItem
                 item={item}
                 id={item.id}
+                key={item.id}
                 name={item.name}
                 price={item.price}
                 qty={item.qty}
@@ -39,13 +44,13 @@ const Cart = (props) => {
                     .toFixed(2)}`}
             </h1>
             {cartItems.length >= 1 && (
-              <Button className={styles['order-btn']} type='button'>
+              <Button className={styles['order-btn']} type='submit'>
                 Place Order
               </Button>
             )}
           </div>
         </section>
-      </section>
+      </form>
     </Modal>
   )
 }

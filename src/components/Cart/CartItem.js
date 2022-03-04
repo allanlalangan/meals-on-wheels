@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import CartContext from '../store/cartContext'
 import styles from './CartItem.module.css'
 
-import MealQtyInput from '../UI/MealQtyInput'
 import Button from '../UI/Button'
 
 const CartItem = (props) => {
@@ -22,13 +21,21 @@ const CartItem = (props) => {
     <li className={styles['cart-item']}>
       <article className={styles['meal-info']}>
         <h1 className={styles['meal-name']}>{props.name}</h1>
-        <input type='number' value={props.qty} />
-        {/* <p
-          className={props.qty === 1 ? `${styles.hidden}` : ''}
-        >{`x${props.qty}`}</p> */}
+        <p>{`$${props.price}`}</p>
       </article>
       <article className={styles['cart-item-subtotal']}>
-        <p>{`$${props.price}`}</p>
+        <label htmlFor='cart-qty' className={styles.label}>
+          Qty
+          <input
+            className={styles.input}
+            id='cart-qty'
+            name='quantity'
+            type='number'
+            value={props.qty}
+            readOnly
+          />
+        </label>
+
         <p>{`Subtotal: $${props.totalPrice.toFixed(2)}`}</p>
       </article>
       <div className={styles['cart-item-controls']}>
